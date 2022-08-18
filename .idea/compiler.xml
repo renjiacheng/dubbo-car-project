@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dubbo-car-project-car-service-api" />
+        <module name="dubbo-car-project-employee-service-impl" />
+        <module name="dubbo-car-project-admin-web" />
+        <module name="dubbo-car-project-redis" />
+        <module name="dubbo-car-project-log-service-impl" />
+        <module name="dubbo-car-project-mapper" />
+        <module name="dubbo-car-project-config-service-impl" />
+        <module name="dubbo-car-project-log-service-api" />
+        <module name="dubbo-car-project-employee-service-api" />
+        <module name="dubbo-car-project-customer-service-impl" />
+        <module name="dubbo-car-project-config-service-api" />
+        <module name="dubbo-car-project-admin-service-impl" />
+        <module name="dubbo-car-project-statement-service-api" />
+        <module name="dubbo-car-project-repertory-service-api" />
+        <module name="dubbo-car-project-statement-service-impl" />
+        <module name="dubbo-car-project-admin-service-api" />
+        <module name="dubbo-car-project-repertory-service-impl" />
+        <module name="dubbo-car-project-finance-service-api" />
+        <module name="dubbo-car-project-finance-service-impl" />
+        <module name="dubbo-car-project-pojo" />
+        <module name="dubbo-car-project-car-service-impl" />
+        <module name="dubbo-car-project-customer-service-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="carsale" target="8" />
+      <module name="dubbo-car-project-admin-service-api" target="1.8" />
+      <module name="dubbo-car-project-admin-service-impl" target="1.8" />
+      <module name="dubbo-car-project-admin-web" target="1.8" />
+      <module name="dubbo-car-project-car-service-api" target="1.8" />
+      <module name="dubbo-car-project-car-service-impl" target="1.8" />
+      <module name="dubbo-car-project-config-service-api" target="1.8" />
+      <module name="dubbo-car-project-config-service-impl" target="1.8" />
+      <module name="dubbo-car-project-customer-service-api" target="1.8" />
+      <module name="dubbo-car-project-customer-service-impl" target="1.8" />
+      <module name="dubbo-car-project-employee-service-api" target="1.8" />
+      <module name="dubbo-car-project-employee-service-impl" target="1.8" />
+      <module name="dubbo-car-project-finance-service-api" target="1.8" />
+      <module name="dubbo-car-project-finance-service-impl" target="1.8" />
+      <module name="dubbo-car-project-log-service-api" target="1.8" />
+      <module name="dubbo-car-project-log-service-impl" target="1.8" />
+      <module name="dubbo-car-project-mapper" target="1.8" />
+      <module name="dubbo-car-project-pojo" target="1.8" />
+      <module name="dubbo-car-project-redis" target="1.8" />
+      <module name="dubbo-car-project-repertory-service-api" target="1.8" />
+      <module name="dubbo-car-project-repertory-service-impl" target="1.8" />
+      <module name="dubbo-car-project-statement-service-api" target="1.8" />
+      <module name="dubbo-car-project-statement-service-impl" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

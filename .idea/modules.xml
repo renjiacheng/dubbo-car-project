@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/carsale.iml" filepath="$PROJECT_DIR$/.idea/carsale.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-admin-service-api/dubbo-car-project-admin-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-admin-service-api/dubbo-car-project-admin-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-admin-service-impl/dubbo-car-project-admin-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-admin-service-impl/dubbo-car-project-admin-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-admin-web/dubbo-car-project-admin-web.iml" filepath="$PROJECT_DIR$/dubbo-car-project-admin-web/dubbo-car-project-admin-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-car-service-api/dubbo-car-project-car-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-car-service-api/dubbo-car-project-car-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-car-service-impl/dubbo-car-project-car-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-car-service-impl/dubbo-car-project-car-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-config-service-api/dubbo-car-project-config-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-config-service-api/dubbo-car-project-config-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-config-service-impl/dubbo-car-project-config-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-config-service-impl/dubbo-car-project-config-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-customer-service-api/dubbo-car-project-customer-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-customer-service-api/dubbo-car-project-customer-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-customer-service-impl/dubbo-car-project-customer-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-customer-service-impl/dubbo-car-project-customer-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-employee-service-api/dubbo-car-project-employee-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-employee-service-api/dubbo-car-project-employee-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-employee-service-impl/dubbo-car-project-employee-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-employee-service-impl/dubbo-car-project-employee-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-finance-service-api/dubbo-car-project-finance-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-finance-service-api/dubbo-car-project-finance-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-finance-service-impl/dubbo-car-project-finance-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-finance-service-impl/dubbo-car-project-finance-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-log-service-api/dubbo-car-project-log-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-log-service-api/dubbo-car-project-log-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-log-service-impl/dubbo-car-project-log-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-log-service-impl/dubbo-car-project-log-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-mapper/dubbo-car-project-mapper.iml" filepath="$PROJECT_DIR$/dubbo-car-project-mapper/dubbo-car-project-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-pojo/dubbo-car-project-pojo.iml" filepath="$PROJECT_DIR$/dubbo-car-project-pojo/dubbo-car-project-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-redis/dubbo-car-project-redis.iml" filepath="$PROJECT_DIR$/dubbo-car-project-redis/dubbo-car-project-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-repertory-service-api/dubbo-car-project-repertory-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-repertory-service-api/dubbo-car-project-repertory-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-repertory-service-impl/dubbo-car-project-repertory-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-repertory-service-impl/dubbo-car-project-repertory-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-statement-service-api/dubbo-car-project-statement-service-api.iml" filepath="$PROJECT_DIR$/dubbo-car-project-statement-service-api/dubbo-car-project-statement-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-car-project-statement-service-impl/dubbo-car-project-statement-service-impl.iml" filepath="$PROJECT_DIR$/dubbo-car-project-statement-service-impl/dubbo-car-project-statement-service-impl.iml" />
+    </modules>
+  </component>
+</project>
