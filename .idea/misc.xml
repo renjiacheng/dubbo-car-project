@@ -12,6 +12,9 @@
     <file type="web" url="file://$PROJECT_DIR$/dubbo-car-project-repertory-service-impl" />
     <file type="web" url="file://$PROJECT_DIR$/dubbo-car-project-statement-service-impl" />
   </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
