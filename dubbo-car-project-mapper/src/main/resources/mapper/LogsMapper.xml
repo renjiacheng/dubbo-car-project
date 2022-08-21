@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oracle.mapper.LogsMapper" >
+  <resultMap id="BaseResultMap" type="com.oracle.pojo.Logs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="adminName" property="adminname" jdbcType="VARCHAR" />
+    <result column="logMethod" property="logmethod" jdbcType="VARCHAR" />
+    <result column="logargs" property="logargs" jdbcType="VARCHAR" />
+    <result column="logType" property="logtype" jdbcType="VARCHAR" />
+    <result column="logip" property="logip" jdbcType="VARCHAR" />
+    <result column="runtime" property="runtime" jdbcType="REAL" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, adminName, logMethod, logargs, logType, logip, runtime, createTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.oracle.pojo.LogsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from logs
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from logs
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oracle.pojo.LogsExample" >
+    delete from logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oracle.pojo.Logs" >
+    insert into logs (id, adminName, logMethod, 
+      logargs, logType, logip, 
+      runtime, createTime)
+    values (#{id,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{logmethod,jdbcType=VARCHAR}, 
+      #{logargs,jdbcType=VARCHAR}, #{logtype,jdbcType=VARCHAR}, #{logip,jdbcType=VARCHAR}, 
+      #{runtime,jdbcType=REAL}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.oracle.pojo.Logs" >
+    insert into logs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="adminname != null" >
+        adminName,
+      </if>
+      <if test="logmethod != null" >
+        logMethod,
+      </if>
+      <if test="logargs != null" >
+        logargs,
+      </if>
+      <if test="logtype != null" >
+        logType,
+      </if>
+      <if test="logip != null" >
+        logip,
+      </if>
+      <if test="runtime != null" >
+        runtime,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="adminname != null" >
+        #{adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="logmethod != null" >
+        #{logmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="logargs != null" >
+        #{logargs,jdbcType=VARCHAR},
+      </if>
+      <if test="logtype != null" >
+        #{logtype,jdbcType=VARCHAR},
+      </if>
+      <if test="logip != null" >
+        #{logip,jdbcType=VARCHAR},
+      </if>
+      <if test="runtime != null" >
+        #{runtime,jdbcType=REAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oracle.pojo.LogsExample" resultType="java.lang.Integer" >
+    select count(*) from logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update logs
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminname != null" >
+        adminName = #{record.adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logmethod != null" >
+        logMethod = #{record.logmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logargs != null" >
+        logargs = #{record.logargs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logtype != null" >
+        logType = #{record.logtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logip != null" >
+        logip = #{record.logip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.runtime != null" >
+        runtime = #{record.runtime,jdbcType=REAL},
+      </if>
+      <if test="record.createtime != null" >
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update logs
+    set id = #{record.id,jdbcType=INTEGER},
+      adminName = #{record.adminname,jdbcType=VARCHAR},
+      logMethod = #{record.logmethod,jdbcType=VARCHAR},
+      logargs = #{record.logargs,jdbcType=VARCHAR},
+      logType = #{record.logtype,jdbcType=VARCHAR},
+      logip = #{record.logip,jdbcType=VARCHAR},
+      runtime = #{record.runtime,jdbcType=REAL},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.pojo.Logs" >
+    update logs
+    <set >
+      <if test="adminname != null" >
+        adminName = #{adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="logmethod != null" >
+        logMethod = #{logmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="logargs != null" >
+        logargs = #{logargs,jdbcType=VARCHAR},
+      </if>
+      <if test="logtype != null" >
+        logType = #{logtype,jdbcType=VARCHAR},
+      </if>
+      <if test="logip != null" >
+        logip = #{logip,jdbcType=VARCHAR},
+      </if>
+      <if test="runtime != null" >
+        runtime = #{runtime,jdbcType=REAL},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oracle.pojo.Logs" >
+    update logs
+    set adminName = #{adminname,jdbcType=VARCHAR},
+      logMethod = #{logmethod,jdbcType=VARCHAR},
+      logargs = #{logargs,jdbcType=VARCHAR},
+      logType = #{logtype,jdbcType=VARCHAR},
+      logip = #{logip,jdbcType=VARCHAR},
+      runtime = #{runtime,jdbcType=REAL},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
