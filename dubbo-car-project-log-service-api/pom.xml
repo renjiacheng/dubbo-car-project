@@ -11,5 +11,11 @@
     <packaging>jar</packaging>
     <artifactId>dubbo-car-project-log-service-api</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>net.oracle</groupId>
+            <artifactId>dubbo-car-project-pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
