@@ -2,7 +2,6 @@ package com.oracle.log.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.PageHelper;
-import com.oracle.config.RedisConfig;
 import com.oracle.log.service.api.LogServiceApi;
 import com.oracle.mapper.LogsMapper;
 import com.oracle.pojo.Logs;
@@ -12,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author HuangHaoD
@@ -33,6 +33,20 @@ public class LogServiceImpl implements LogServiceApi {
 
     @Override
     public Page<List<LogsVo>> getLogList(Integer pageNum, Integer pageSize) {
-        return null;
+        com.github.pagehelper.Page<Logs> page = PageHelper.startPage(pageNum, pageSize);
+        logsMapper.selectByExample(null);
+        List<Logs> result = page.getResult();
+        List<LogsVo> logsVoList = result.stream().map(logs -> {
+            LogsVo logsVo = new LogsVo();
+            BeanUtils.copyProperties(logs, logsVo);
+            return logsVo;
+        }).collect(Collectors.toList());
+        Page pageInfo=new Page();
+        pageInfo.setPageNums(pageNum);
+        pageInfo.setPageSize(pageSize);
+        pageInfo.setAllRow(page.getTotal());
+        pageInfo.setTotalPage(page.getPages());
+        pageInfo.setData(logsVoList);
+        return pageInfo;
     }
 }
