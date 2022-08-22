@@ -167,6 +167,13 @@
             <groupId>org.csource.fastdfs</groupId>
             <artifactId>fastdfs</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>net.oracle</groupId>
+            <artifactId>dubbo-car-project-log-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

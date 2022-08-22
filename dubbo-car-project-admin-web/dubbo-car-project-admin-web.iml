@@ -85,5 +85,8 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.csource.fastdfs:fastdfs:1.2" level="project" />
+    <orderEntry type="module" module-name="dubbo-car-project-log-service-api" />
+    <orderEntry type="module" module-name="dubbo-car-project-pojo" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.18" level="project" />
   </component>
 </module>
