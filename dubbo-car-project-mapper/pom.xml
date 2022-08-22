@@ -40,10 +40,9 @@
             <artifactId>druid</artifactId>
         </dependency>
 
-        <!--实体传输层-->
         <dependency>
-            <groupId>net.huang</groupId>
-            <artifactId>dubbo-news-project-pojo</artifactId>
+            <groupId>net.oracle</groupId>
+            <artifactId>dubbo-car-project-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

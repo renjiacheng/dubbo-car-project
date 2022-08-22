@@ -19,6 +19,7 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.30" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.10" level="project" />
-    <orderEntry type="library" name="Maven: net.huang:dubbo-news-project-pojo:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="dubbo-car-project-pojo" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.18" level="project" />
   </component>
 </module>
