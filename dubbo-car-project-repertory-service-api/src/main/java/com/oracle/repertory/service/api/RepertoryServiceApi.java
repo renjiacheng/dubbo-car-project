@@ -1,6 +1,7 @@
 package com.oracle.repertory.service.api;
 
 import com.oracle.pojo.vo.Page;
+import com.oracle.pojo.vo.RepertoryBo;
 import com.oracle.pojo.vo.RepertoryVo;
 
 import java.util.List;
@@ -23,5 +24,5 @@ public interface RepertoryServiceApi {
      * @param pageSize 页面大小
      * @return 返回一个page对象
      */
-    Page<List<RepertoryVo>>  getRepertoryListPage(Integer pageNum,Integer pageSize);
+    Page<List<RepertoryBo>>  getRepertoryListPage(Integer pageNum, Integer pageSize);
 }
