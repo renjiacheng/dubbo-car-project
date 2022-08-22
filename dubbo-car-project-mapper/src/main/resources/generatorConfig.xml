@@ -49,7 +49,7 @@
         </javaClientGenerator>
         
         <!-- 要生成哪些表 -->
-        <table tableName="%"
+        <table tableName="systemconfig"
             enableCountByExample="true" enableUpdateByExample="true"
             enableDeleteByExample="true" enableSelectByExample="true"
             selectByExampleQueryId="true">
