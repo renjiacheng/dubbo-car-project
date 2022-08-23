@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<context:property-placeholder location="classpath*:properties/*.properties"></context:property-placeholder>
+
+	<!-- 扫描包 -->
+	<context:component-scan base-package="com.oracle"></context:component-scan>
+	<!-- 服务协议端口 -->
+    <dubbo:protocol name="dubbo" port="20888" threads="300" threadpool="fixed"></dubbo:protocol>
+	<dubbo:application name="dubbo-car-repertory-service" />
+	<!-- 注册中心地址 -->
+    <dubbo:registry address="zookeeper://192.168.80.140:2181?backup=192.168.80.141:2181,192.168.80.142:2181"  timeout="1000000" />
+    <dubbo:annotation package="com.oracle.repertory.service.impl" />
+</beans>

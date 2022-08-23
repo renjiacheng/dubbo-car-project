@@ -1,7 +1,10 @@
 package com.oracle.repertory.service.api;
 
+import com.oracle.pojo.dto.ServiceResult;
 import com.oracle.pojo.vo.Page;
+import com.oracle.pojo.vo.RepertoryBo;
 import com.oracle.pojo.vo.RepertoryVo;
+import com.oracle.pojo.vo.SearchBean;
 
 import java.util.List;
 
@@ -15,7 +18,15 @@ public interface RepertoryServiceApi {
      * @param repertoryVo
      * @return 大于0表示添加成功
      */
-    int addRepertory(RepertoryVo repertoryVo);
+    ServiceResult addRepertory(RepertoryVo repertoryVo);
+
+    /**
+     * 修改库存数量
+     * @param repertortId
+     * @param num
+     * @return
+     */
+    ServiceResult updateRepertoryNum(Integer repertortId,Integer num);
 
     /**
      *
@@ -23,5 +34,8 @@ public interface RepertoryServiceApi {
      * @param pageSize 页面大小
      * @return 返回一个page对象
      */
-    Page<List<RepertoryVo>>  getRepertoryListPage(Integer pageNum,Integer pageSize);
+    Page<List<RepertoryBo>>  getRepertoryListPage(Integer pageNum, Integer pageSize);
+
+
+    List<RepertoryBo> searchRepertoryMatch(SearchBean searchBean);
 }
