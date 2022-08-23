@@ -6,6 +6,7 @@ import com.oracle.mapper.CarorderMapper;
 import com.oracle.pojo.Carorder;
 import com.oracle.pojo.vo.CarOrderNumVo;
 import com.oracle.pojo.vo.CarorderVo;
+import com.oracle.repertory.service.api.RepertoryServiceApi;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class CarOrderServiceImpl implements CarOrderServiceApi {
 
     @Autowired
     private AmqpTemplate amqpTemplate;
+    @Autowired
+    private RepertoryServiceApi repertoryServiceApi;
 
 
     @Override
@@ -31,7 +34,8 @@ public class CarOrderServiceImpl implements CarOrderServiceApi {
         Carorder carorder=new Carorder();
         BeanUtils.copyProperties(carorderVo,carorder);
         this.carorderMapper.insert(carorder);
-        amqpTemplate.convertAndSend("springOrderExchange","order",carorderVo);
+        repertoryServiceApi.updateRepertoryNum(carorder.getCarid(),-carorder.getOrdernum());
+        amqpTemplate.convertAndSend("springOrderExchange","order",carorderVo.getOrderid());
     }
 
     @Override
@@ -50,10 +54,11 @@ public class CarOrderServiceImpl implements CarOrderServiceApi {
     }
 
     @Override
-    public String  findByOrderType(Integer id) {
+    public CarorderVo  findByOrderType(Integer id) {
         Carorder carorder = this.carorderMapper.selectByPrimaryKey(id);
-        String ordertype = carorder.getOrdertype();
-        return ordertype;
+        CarorderVo carorderVo=new CarorderVo();
+        BeanUtils.copyProperties(carorder,carorderVo);
+        return carorderVo;
     }
 
     @Override
@@ -61,5 +66,6 @@ public class CarOrderServiceImpl implements CarOrderServiceApi {
         List<CarOrderNumVo> carOrderNumVos = this.carorderMapper.selectAll();
         return carOrderNumVos;
     }
+
 
 }

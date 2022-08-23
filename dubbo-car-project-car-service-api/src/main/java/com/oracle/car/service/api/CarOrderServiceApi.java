@@ -47,7 +47,8 @@ public interface CarOrderServiceApi {
      * @param id
      * @return java.lang.String
      */
-    String findByOrderType(Integer id);
+    CarorderVo findByOrderType(Integer id);
 
     List<CarOrderNumVo> getList();
+
 }

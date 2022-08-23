@@ -3,6 +3,7 @@ package com.oracle.customer;
 import com.alibaba.fastjson.JSON;
 import com.oracle.car.service.api.CarOrderServiceApi;
 import com.oracle.pojo.Carorder;
+import com.oracle.pojo.vo.CarorderVo;
 import com.oracle.repertory.service.api.RepertoryServiceApi;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
@@ -23,10 +24,10 @@ public class OrderConsumer implements MessageListener {
     @Override
     public void onMessage(Message message) {
         byte[] body = message.getBody();
-        Carorder carorder= JSON.parseObject(body, Carorder.class);
-        String byOrderType = this.carOrderServiceApi.findByOrderType(carorder.getOrderid());
-        if ("1".equals(byOrderType)){
-            this.repertoryServiceApi.updateRepertoryNum(carorder.getOrderid(),-carorder.getOrdernum());
+        Integer carorderId= JSON.parseObject(body, Integer.class);
+        CarorderVo carorderVo = this.carOrderServiceApi.findByOrderType(carorderId);
+        if ("1".equals(carorderVo.getOrdertype())){
+            this.repertoryServiceApi.updateRepertoryNum(carorderId,+carorderVo.getOrdernum());
         }
     }
 }
