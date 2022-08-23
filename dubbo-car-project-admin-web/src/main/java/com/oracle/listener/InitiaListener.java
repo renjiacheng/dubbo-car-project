@@ -14,7 +14,9 @@ import javax.servlet.ServletContext;
 @Component
 public class InitiaListener implements ServletContextAware, ApplicationListener<ContextRefreshedEvent> {
 
-//    ContextRefreshedEvent:上下文更新事件
+    /**
+     *     ContextRefreshedEvent:上下文更新事件
+     */
     private ServletContext servletContext;
 
 
