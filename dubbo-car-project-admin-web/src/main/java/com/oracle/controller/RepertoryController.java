@@ -1,5 +1,7 @@
 package com.oracle.controller;
 
+import com.oracle.car.service.api.CarOrderServiceApi;
+import com.oracle.pojo.vo.CarOrderNumVo;
 import com.oracle.pojo.vo.Page;
 import com.oracle.pojo.vo.RepertoryBo;
 import com.oracle.repertory.service.api.RepertoryServiceApi;
@@ -23,6 +25,9 @@ public class RepertoryController {
     @Autowired(required = false)
     private RepertoryServiceApi repertoryServiceApi;
 
+    @Autowired(required = false)
+    private CarOrderServiceApi carOrderServiceApi;
+
     @RequestMapping("/list")
     public String list(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                        @RequestParam(value = "pageSize",defaultValue = "5")Integer pageSize,
@@ -30,5 +35,13 @@ public class RepertoryController {
         Page<List<RepertoryBo>> pageInfo = this.repertoryServiceApi.getRepertoryListPage(pageNum, pageSize);
         model.addAttribute("pageInfo",pageInfo);
         return "";
+    }
+
+
+    @RequestMapping("/carSalesLineChart")
+    public String carSalesLineChart(Model model){
+        List<CarOrderNumVo> list = this.carOrderServiceApi.getList();
+        model.addAttribute("list",list);
+        return "repertory/CarSalesLineChart";
     }
 }
