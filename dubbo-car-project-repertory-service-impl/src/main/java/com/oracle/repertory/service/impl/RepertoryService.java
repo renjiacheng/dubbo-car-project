@@ -14,8 +14,11 @@ import com.oracle.pojo.vo.SearchBean;
 import com.oracle.repertory.service.api.RepertoryServiceApi;
 import com.oracle.repertory.service.config.EsClientConfig;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -56,6 +59,18 @@ public class RepertoryService implements RepertoryServiceApi {
             BeanUtils.copyProperties(repertoryVo,repertory);
             //插入
             int insert = this.repertoryMapper.insert(repertory);
+            //加入es
+            try {
+                RepertoryBo repertoryBo = this.repertoryMapper.findRepertoryById(repertory.getRepertoryid());
+                IndexRequest indexRequest = new IndexRequest("carrepertory");
+                indexRequest.id(repertoryBo.getRepertoryId()+"");
+                String json= JSONObject.toJSONString(repertoryBo);
+                indexRequest.source(json, XContentType.JSON);
+                IndexResponse indexResponse=this.esClientConfig.esRestClient().index(indexRequest,EsClientConfig.COMMON_OPTIONS);
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+
             new ServiceResult(ServiceResult.SUCCESS_CODE,"添加成功",null);
         }
         return new ServiceResult(ServiceResult.SUCCESS_FAIL,"已存在相同的产品",null);
