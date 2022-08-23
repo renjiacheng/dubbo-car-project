@@ -101,7 +101,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.oracle.pojo.Repertory" >
+  <insert id="insert" parameterType="com.oracle.pojo.Repertory" useGeneratedKeys="true" keyProperty="repertoryid">
     insert into repertory (repertoryId, carId, companyId, 
       purchasePrice, inTime, repertoryNum
       )
