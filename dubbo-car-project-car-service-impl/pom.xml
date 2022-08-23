@@ -128,6 +128,12 @@
                 <artifactId>servlet-api</artifactId>
                 <scope>provided</scope>
             </dependency>
+        <dependency>
+            <groupId>net.oracle</groupId>
+            <artifactId>dubbo-car-project-repertory-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
         <build>
