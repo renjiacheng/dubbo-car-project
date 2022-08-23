@@ -16,7 +16,7 @@
 	<context:component-scan base-package="com.oracle"></context:component-scan>
 	<!-- 服务协议端口 -->
     <dubbo:protocol name="dubbo" port="20888" threads="300" threadpool="fixed"></dubbo:protocol>
-	<dubbo:application name="dubbo-repertory-service" />
+	<dubbo:application name="dubbo-car-repertory-service" />
 	<!-- 注册中心地址 -->
     <dubbo:registry address="zookeeper://192.168.80.140:2181?backup=192.168.80.141:2181,192.168.80.142:2181"  timeout="1000000" />
     <dubbo:annotation package="com.oracle.repertory.service.impl" />
