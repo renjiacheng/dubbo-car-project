@@ -4,10 +4,13 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.oracle.car.service.api.CarOrderServiceApi;
 import com.oracle.mapper.CarorderMapper;
 import com.oracle.pojo.Carorder;
+import com.oracle.pojo.vo.CarOrderNumVo;
 import com.oracle.pojo.vo.CarorderVo;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * @author HuangHaoD
@@ -51,6 +54,12 @@ public class CarOrderServiceImpl implements CarOrderServiceApi {
         Carorder carorder = this.carorderMapper.selectByPrimaryKey(id);
         String ordertype = carorder.getOrdertype();
         return ordertype;
+    }
+
+    @Override
+    public List<CarOrderNumVo> getList() {
+        List<CarOrderNumVo> carOrderNumVos = this.carorderMapper.selectAll();
+        return carOrderNumVos;
     }
 
 }
