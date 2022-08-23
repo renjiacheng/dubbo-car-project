@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:property-placeholder location="classpath:/properties/admin-web.properties" ignore-unresolvable="true" ignore-resource-not-found="true"></context:property-placeholder>
+
+	<context:property-placeholder location="classpath:/properties/admin.properties" ignore-unresolvable="true" ignore-resource-not-found="true"></context:property-placeholder>
+	<!-- 引用dubbo 服务 -->
+	<dubbo:application name="dubbo-news-project-admin-web" />
+	<!-- Dubbo 协议及 服务端口号 -->
+	<dubbo:protocol  name="dubbo" port="20880"></dubbo:protocol>
+	
+	<dubbo:registry address="zookeeper://192.168.23.7:2181?backup=192.168.23.6:2181,192.168.23.8:2181"/>
+
+	<!--
+		分布式项目中，A调用B,  B再调用A，或者A调B，B调用C，C再调用A，形成一个环路时，就会出现循环依赖的问题，
+	当启动A服务时，需要B服务暴露的接口，找不到就会抛异常，B服务启动时，需要同样需要依赖A服务暴露的接口，也会抛异常
+	所以我们经常在reference中配置check=false，这样在服务启动时就不会检查实例是否已经实例化
+	-->
+
+	<dubbo:reference interface="com.oracle.log.service.api.LogServiceApi" id="logServiceApi" check="false" timeout="600000">
+		<dubbo:method name="addLog" async="true"/>
+	</dubbo:reference>
+
+	<context:component-scan base-package="com.oracle"/>
+
+	<import resource="applicationContext-mq-product.xml"/>
+	<import resource="applicationContext-mq-consumer.xml"/>
+	<import resource="applicationContext-mq-consumer-dlx.xml"/>
+</beans>

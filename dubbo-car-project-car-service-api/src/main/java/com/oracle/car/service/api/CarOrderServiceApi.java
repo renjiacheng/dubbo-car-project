@@ -17,7 +17,7 @@ public interface CarOrderServiceApi {
      * @param carorderVo
      * @return int
      */
-    int insertCarOrder(CarorderVo carorderVo);
+    void insertCarOrder(CarorderVo carorderVo);
 
     /**
      * 更新订单
@@ -26,7 +26,7 @@ public interface CarOrderServiceApi {
      * @param carorderVo
      * @return int
      */
-    int updateCarOrder(CarorderVo carorderVo);
+    void updateCarOrder(CarorderVo carorderVo);
 
         /**
          * 审核订单
@@ -35,6 +35,9 @@ public interface CarOrderServiceApi {
          * @param id
          * @return int
          */
-    int updateCarType(Integer id);
+    void updateCarType(Integer id);
+
+
+    String findByOrderType(Integer id);
 
 }

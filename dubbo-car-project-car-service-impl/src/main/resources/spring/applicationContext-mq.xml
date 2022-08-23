@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+
+
+    <bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <!-- username,访问RabbitMQ服务器的账户,默认是guest -->
+        <property name="username" value="guest" />
+        <!-- username,访问RabbitMQ服务器的密码,默认是guest -->
+        <property name="password" value="guest" />
+        <!-- host,RabbitMQ服务器地址，默认值"localhost" -->
+        <property name="host" value="192.168.23.6" />
+        <!-- port，RabbitMQ服务端口，默认值为5672 -->
+        <property name="port" value="5672" />
+    </bean>
+
+    <rabbit:admin connection-factory="connectionFactory" />
+
+    <bean id="jsonMessageConverter"
+          class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" />
+
+    <!-- 死信 queue 队列声明 -->
+    <rabbit:queue  durable="false" auto-delete="false"
+                   exclusive="false"  name="DLXQueue" >
+    </rabbit:queue>
+
+<!--    死信交换机-->
+    <rabbit:direct-exchange name="DlxExchange" durable="false" auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="DLXQueue" key="dlx" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+
+
+
+    <!-- queue 队列声明 -->
+    <rabbit:queue  durable="false" auto-delete="false"
+                   exclusive="false"  name="SpringOrderQueue" >
+        <rabbit:queue-arguments>
+            <entry key="x-message-ttl" value="30*1000*60" value-type="java.lang.Long"/>
+            <entry key="x-dead-letter-exchange" value="DlxExchange"/>
+            <entry key="x-dead-letter-routing-key" value="dlx" />
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+
+    <!-- exchange queue binging key 绑定 -->
+    <rabbit:direct-exchange name="springOrderExchange" durable="false" auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="SpringOrderQueue" key="order" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <bean id="rabbitTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg name="connectionFactory" ref="connectionFactory"></constructor-arg>
+        <property name="messageConverter" ref="jsonMessageConverter"/>
+    </bean>
+</beans>

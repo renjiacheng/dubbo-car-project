@@ -88,5 +88,8 @@
     <orderEntry type="module" module-name="dubbo-car-project-log-service-api" />
     <orderEntry type="module" module-name="dubbo-car-project-pojo" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.18" level="project" />
+    <orderEntry type="module" module-name="dubbo-car-project-config-service-api" />
+    <orderEntry type="module" module-name="dubbo-car-project-car-service-api" />
+    <orderEntry type="module" module-name="dubbo-car-project-repertory-service-api" />
   </component>
 </module>
