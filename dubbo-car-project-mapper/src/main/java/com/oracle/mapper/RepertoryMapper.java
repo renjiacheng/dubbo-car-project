@@ -35,4 +35,10 @@ public interface RepertoryMapper {
             "left join car c on c.carId=r.carId\n" +
             "left join company comp on r.companyId=comp.companyId")
     List<RepertoryBo> findallRepertory();
+
+    @Select("select r.repertoryId,c.carName,comp.companyName,r.purchasePrice,r.inTime,r.repertoryNum from repertory r\n" +
+            "left join car c on c.carId=r.carId\n" +
+            "left join company comp on r.companyId=comp.companyId\n" +
+            "where r.repertoryId=#{repertoryid}")
+    RepertoryBo findRepertoryById(Integer repertoryid);
 }
