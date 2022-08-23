@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class OrderConsumer implements MessageListener {
-    @Autowired
+    @Autowired(required = false)
     private CarOrderServiceApi carOrderServiceApi;
-    @Autowired
+    @Autowired(required = false)
     private RepertoryServiceApi repertoryServiceApi;
 
     @Override
@@ -26,7 +26,7 @@ public class OrderConsumer implements MessageListener {
         Carorder carorder= JSON.parseObject(body, Carorder.class);
         String byOrderType = this.carOrderServiceApi.findByOrderType(carorder.getOrderid());
         if ("1".equals(byOrderType)){
-
+            this.repertoryServiceApi.updateRepertoryNum(carorder.getOrderid(),-carorder.getOrdernum());
         }
     }
 }
