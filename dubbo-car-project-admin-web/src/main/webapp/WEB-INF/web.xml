@@ -39,7 +39,6 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/spring/applicationContext-root.xml
-            classpath:/spring/applicationContext-shiro.xml
         </param-value>
     </context-param>
 
