@@ -18,6 +18,10 @@ public class Employee implements Serializable {
 
     private BigDecimal empsalery;
 
+    private Company company;
+
+    private Roles roles;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getEmpid() {
@@ -74,6 +78,22 @@ public class Employee implements Serializable {
 
     public void setEmpsalery(BigDecimal empsalery) {
         this.empsalery = empsalery;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
     }
 
     @Override

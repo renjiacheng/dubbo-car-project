@@ -241,4 +241,28 @@
       empSalery = #{empsalery,jdbcType=DECIMAL}
     where empId = #{empid,jdbcType=INTEGER}
   </update>
+
+  <select id="getEmployeeList" resultType="com.oracle.pojo.Employee" resultMap="employeeMap">
+   select e.*,c.companyName,r.roleName from employee e
+	left join company c on e.companyId=c.companyId
+	left join roles r on e.positionId=r.roleId
+  </select>
+  <resultMap id="employeeMap" type="com.oracle.pojo.Employee">
+    <id property="empid" column="empId"></id>
+    <result property="positionid" column="positionId"></result>
+    <result property="companyid" column="companyId"></result>
+    <result property="empname" column="empName"></result>
+    <result property="empphone" column="empPhone"></result>
+    <result property="emppassword" column="empPassword"></result>
+    <result property="empsalery" column="empSalery"></result>
+    <association property="company" javaType="com.oracle.pojo.Company">
+      <id property="companyid" column="companyId"></id>
+      <result property="companyname" column="companyName"></result>
+    </association>
+    <association property="roles" javaType="com.oracle.pojo.Roles">
+      <id property="roleid" column="roleId"></id>
+      <result property="rolename" column="roleName"></result>
+      <result property="roledesc" column="roleDesc"></result>
+    </association>
+  </resultMap>
 </mapper>

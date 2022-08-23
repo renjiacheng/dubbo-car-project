@@ -3,6 +3,8 @@ package com.oracle.mapper;
 import com.oracle.pojo.Financing;
 import com.oracle.pojo.FinancingExample;
 import java.util.List;
+
+import com.oracle.pojo.vo.FinancingVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface FinancingMapper {
@@ -27,4 +29,6 @@ public interface FinancingMapper {
     int updateByPrimaryKeySelective(Financing record);
 
     int updateByPrimaryKey(Financing record);
+
+    List<FinancingVo> getFinancingList();
 }

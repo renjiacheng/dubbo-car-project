@@ -19,6 +19,10 @@ public class Financing implements Serializable {
 
     private Date financingtime;
 
+    private Company company;
+
+    private Repertory repertory;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getFinancingid() {
@@ -75,6 +79,22 @@ public class Financing implements Serializable {
 
     public void setFinancingtime(Date financingtime) {
         this.financingtime = financingtime;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Repertory getRepertory() {
+        return repertory;
+    }
+
+    public void setRepertory(Repertory repertory) {
+        this.repertory = repertory;
     }
 
     @Override

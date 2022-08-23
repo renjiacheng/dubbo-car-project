@@ -241,4 +241,34 @@
       financingTime = #{financingtime,jdbcType=TIMESTAMP}
     where financingId = #{financingid,jdbcType=INTEGER}
   </update>
+  <select id="getFinancingList" resultType="com.oracle.pojo.Financing" resultMap="financingMap" >
+    select f.*,c.companyName,r.purchasePrice,r.repertoryNum from financing f
+	left join company c on f.companyId=c.companyId
+	left join repertory r on f.repertoryId=r.repertoryId
+  </select>
+
+  <resultMap id="financingMap" type="com.oracle.pojo.Financing">
+    <id property="financingid" column="financingId"></id>
+    <result property="saleid" column="saleId"></result>
+    <result property="repertoryid" column="repertoryId"></result>
+    <result property="companyid" column="companyId"></result>
+    <result property="financingmoney" column="financingMoney"></result>
+    <result property="financingtype" column="financingType"></result>
+    <result property="financingtime" column="financingTime"></result>
+
+    <association property="company" javaType="com.oracle.pojo.Company">
+      <id property="companyid" column="companyId"></id>
+      <result property="companyname" column="companyName"></result>
+    </association>
+
+    <association property="repertory" javaType="com.oracle.pojo.Repertory">
+      <id property="repertoryid" column="repertoryId"></id>
+      <result property="carid" column="carId"></result>
+      <result property="companyid" column="companyId"></result>
+      <result property="purchaseprice" column="purchasePrice"></result>
+      <result property="intime" column="inTime"></result>
+      <result property="repertorynum" column="repertoryNum"></result>
+    </association>
+
+  </resultMap>
 </mapper>
