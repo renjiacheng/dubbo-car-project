@@ -1,7 +1,10 @@
 package com.oracle.car.service.api;
 
 
+import com.oracle.pojo.vo.CarOrderNumVo;
 import com.oracle.pojo.vo.CarorderVo;
+
+import java.util.List;
 
 
 /**
@@ -37,7 +40,14 @@ public interface CarOrderServiceApi {
          */
     void updateCarType(Integer id);
 
-
+    /**
+     * 查询订单的状态
+     * @author HuangHaoD
+     * @date 2022/8/23 10:48
+     * @param id
+     * @return java.lang.String
+     */
     String findByOrderType(Integer id);
 
+    List<CarOrderNumVo> getList();
 }
