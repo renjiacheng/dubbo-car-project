@@ -33,9 +33,6 @@
         </rabbit:bindings>
     </rabbit:direct-exchange>
 
-
-
-
     <!-- queue 队列声明 -->
     <rabbit:queue  durable="false" auto-delete="false"
                    exclusive="false"  name="SpringOrderQueue" >

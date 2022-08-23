@@ -33,9 +33,4 @@
         <rabbit:listener ref="configCustomer" queues="ConfigQueue"></rabbit:listener>
     </rabbit:listener-container>
 
-
-
-
-
-
 </beans>
